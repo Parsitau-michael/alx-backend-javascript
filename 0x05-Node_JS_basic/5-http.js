@@ -15,7 +15,7 @@ const app = http.createServer(async (req, res) => {
       res.end();
     } catch (error) {
       res.end(error.message);
-    };
+    }
   }
 });
 

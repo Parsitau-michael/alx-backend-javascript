@@ -1,6 +1,6 @@
 const readDatabase = require('../utils');
 
-class StudentsController{
+class StudentsController {
   static async getAllStudents(request, response) {
     const filePath = process.argv[2];
 
@@ -22,7 +22,7 @@ class StudentsController{
 
   static async getAllStudentsByMajor(request, response) {
     const filePath = process.argv[2];
-    const major = request.params.major;
+    const { major } = request.params;
 
     if (major !== 'CS' && major !== 'SWE') {
       return response.status(500).send('Major parameter must be CS or SWE');
@@ -32,10 +32,9 @@ class StudentsController{
       const studentsByField = await readDatabase(filePath);
 
       const students = studentsByField[major];
-      response.status(200).send(`List: ${students.join(', ')}`);
-
+      return response.status(200).send(`List: ${students.join(', ')}`);
     } catch (err) {
-      response.status(500).send('Cannot load the database');
+      return response.status(500).send('Cannot load the database');
     }
   }
 }

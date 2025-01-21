@@ -14,9 +14,15 @@ describe('calculateNumber', function() {
     assert.equal(actualRes, expectedRes);
   });
 
-  it('testing round-off when one argument is floating-point the other an integer', function() {
-    const actualRes = calculateNumber(1.1, 3);
-    const expectedRes = 4;
+  it('testing round-off when first argument is floating-point', function() {
+    const actualRes = calculateNumber(0.7, 200);
+    const expectedRes = 201;
+    assert.equal(actualRes, expectedRes);
+  });
+
+  it('testing round-off when second argument is floating-point', function() {
+    const actualRes = calculateNumber(11, 3.1);
+    const expectedRes = 14;
     assert.equal(actualRes, expectedRes);
   });
 

@@ -5,7 +5,7 @@ function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
     .then((responses) => responses.map((response) => ({
       status: response.status,
-      value: response.status === 'fulfilled' ? response.value : response.reason,
+      value: response.status === 'fulfilled' ? response.value : String(response.reason),
     })));
 }
 

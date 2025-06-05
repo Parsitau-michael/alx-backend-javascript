@@ -4,7 +4,7 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any?
+  [key: string]: any;
 }
 
 interface Directors extends Teacher {
@@ -20,8 +20,15 @@ interface Student {
   lastName: string;
 }
 
-class StudentClass: Student {
-  constructor(firstName, lastName) {
+interface StudentConstructor {
+  new (firstName: string, lastName: string): Student;
+}
+
+class StudentClass implements Student {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -31,6 +38,6 @@ class StudentClass: Student {
   }
 
   displayName() {
-    return ${this.firstName};
+    return `${this.firstName}`;
   }
 } 

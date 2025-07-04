@@ -15,11 +15,11 @@ const theader = document.createElement("thead");
 const headerRow = document.createElement("tr");
 const firstName = document.createElement("th");
 firstName.textContent = "First Name";
-const location = document.createElement("th");
-location.textContent = "Location";
+const loc = document.createElement("th");
+loc.textContent = "Location";
 
 headerRow.appendChild(firstName);
-headerRow.appendChild(location);
+headerRow.appendChild(loc);
 
 theader.appendChild(headerRow);
 table.appendChild(theader);
